@@ -1,0 +1,48 @@
+
+version: 2.1
+jobs:
+
+  MBB-Python:
+    docker:
+      - image: "circleci/python:3.6.4" 
+    steps:
+      - checkout
+      - run: python myToolkit/my_building_blocks.py
+
+  Test-MBB-Python:
+    docker:
+      - image: "circleci/python:3.6.4"
+    steps:
+      - checkout 
+      #- run: python test_sketch.py 
+
+  Now-Complete:
+    docker:
+      - image: alpine:3.7
+    steps:
+      - run:
+          name: Approval Complete
+          command: |
+            echo 'Do work once the approval has completed'
+
+workflows:
+ version: 2
+ Example_Workflow:
+   jobs:
+
+     - MBB-Python
+     
+     - Test-MBB-Python:
+        requires:
+          - MBB-Python
+
+     #- Hold-For-Approval:
+         #type: approval
+         #requires:
+           #- Run-Test-Sketch
+           #- Run-Test-Employee
+
+     - Now-Complete:
+         requires:
+           #- Hold-For-Approval
+           - Test-MBB-Python
