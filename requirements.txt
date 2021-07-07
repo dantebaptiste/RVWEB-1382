@@ -1,0 +1,7 @@
+PyPDF2==1.26.0
+pdfplumber==0.5.27
+textblob==0.15.3
+pandas==1.2.3
+algoliasearch==2.4.0
+APScheduler==3.7.0
+airtable-python-wrapper==0.15.2

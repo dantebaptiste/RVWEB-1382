@@ -1,0 +1,90 @@
+{
+  "ipcMode": null,
+  "executionRoleArn": "arn:aws:iam::885866003126:role/rv-custometl-test-execution-role",
+  "containerDefinitions": [
+    {
+      "dnsSearchDomains": [],
+      "environmentFiles": null,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "secretOptions": null,
+        "options": {
+          "awslogs-group": "/ecs/rv-custometl-test-task-definition",
+          "awslogs-region": "us-east-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "entryPoint": [],
+      "portMappings": [],
+      "command": [],
+      "linuxParameters": null,
+      "cpu": 0,
+      "environment": [],
+      "resourceRequirements": null,
+      "ulimits": null,
+      "dnsServers": null,
+      "mountPoints": [
+        {
+          "readOnly": null,
+          "containerPath": "/home/realvision/rv_multi_etl/data",
+          "sourceVolume": "EFSvol"
+        }
+      ],
+      "workingDirectory": null,
+      "secrets": null,
+      "dockerSecurityOptions": null,
+      "memory": null,
+      "memoryReservation": null,
+      "volumesFrom": null,
+      "stopTimeout": 120,
+      "image": "885866003126.dkr.ecr.us-east-2.amazonaws.com/rv-custometl-test-repository",
+      "startTimeout": null,
+      "firelensConfiguration": null,
+      "dependsOn": null,
+      "disableNetworking": null,
+      "interactive": null,
+      "healthCheck": null,
+      "essential": true,
+      "links": null,
+      "hostname": null,
+      "extraHosts": null,
+      "pseudoTerminal": null,
+      "user": null,
+      "readonlyRootFilesystem": null,
+      "dockerLabels": null,
+      "systemControls": null,
+      "privileged": null,
+      "name": "rv-custometl-test-container"
+    }
+  ],
+  "placementConstraints": [],
+  "memory": "4096",
+  "taskRoleArn": "arn:aws:iam::885866003126:role/RvCustometlTestStack-rvcustometltesttaskdefinition-1WT1M6QG2FBIU",
+  "family": "rv-custometl-test-task-definition",
+  "pidMode": null,
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "networkMode": "awsvpc",
+  "cpu": "2048",
+  "inferenceAccelerators": null,
+  "proxyConfiguration": null,
+  "volumes": [
+    {
+      "fsxWindowsFileServerVolumeConfiguration": null,
+      "efsVolumeConfiguration": {
+        "transitEncryptionPort": null,
+        "fileSystemId": "fs-8df401f6",
+        "authorizationConfig": {
+          "iam": "DISABLED",
+          "accessPointId": null
+        },
+        "transitEncryption": "DISABLED",
+        "rootDirectory": "/rv_multi_etl/data"
+      },
+      "name": "EFSvol",
+      "host": null,
+      "dockerVolumeConfiguration": null
+    }
+  ]
+}
